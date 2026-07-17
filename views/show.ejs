@@ -3,26 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
 </head>
-<body>
-    <h1>Tech Wisdom Hub</h1>
-    <form method="get" action="http://localhost:8000/posts/new" class="new-post">
-        <button class="new-post">Create new post</button>
-    </form>
-    <% for(post of posts){ %>
-        <div>
-        <h4> @<%=post.username%></h4>        
-        <p><%=post.content%></p>
-            </div>
-        <a href="http://localhost:8000/posts/<%=post.id%>">See in details</a> 
-        <a href="http://localhost:8000/posts/<%=post.id%>/edit">Edit post</a>
-       <form action="/posts/<%=post.id%>?_method=DELETE" method="post">
-        <button class="dlt-btn">Delete</button>
-       </form>
-        <% } %>
-        <br>
-        <br>
+<link rel="stylesheet" href="/index.css">
+ <body> 
+    <h1>post details</h1>
+     <h3> Post id:<%= post.id %></h3>
+     <div class="post">
+      Username:  <%=post.username%> <br> <br>
+      Content:  <%=post.content%>
+     </div>
 </body>
 </html>
