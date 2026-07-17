@@ -3,18 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>edit post</title>
-<link rel="stylesheet" href="/index.css">
+    <title></title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-        <h1>Edit your post</h1>
+    <h1>Tech Wisdom Hub</h1>
+    <form method="get" action="http://localhost:8000/posts/new" class="new-post">
+        <button class="new-post">Create new post</button>
+    </form>
+    <% for(post of posts){ %>
         <div>
-        <h3>post id: <%=post.id%></h3>
-        <h4> post username: <%=post.username%> </h4>
-        </div>
-        <form action="/posts/<%=post.id%>?_method=PATCH" method="post">
-            <textarea rows ="8" name="content" id=""><%=post.content%></textarea> <br> <br>
-            <button>Submit</button>
-        </form>
+        <h4> @<%=post.username%></h4>        
+        <p><%=post.content%></p>
+            </div>
+        <a href="http://localhost:8000/posts/<%=post.id%>">See in details</a> 
+        <a href="http://localhost:8000/posts/<%=post.id%>/edit">Edit post</a>
+       <form action="/posts/<%=post.id%>?_method=DELETE" method="post">
+        <button class="dlt-btn">Delete</button>
+       </form>
+        <% } %>
+        <br>
+        <br>
 </body>
 </html>
